@@ -1,15 +1,45 @@
 @import './Variables.scss';
 @import './Home.scss';
 @import './NotFound.scss';
+@import './Header.scss';
+@import './Banner.scss';
+@import './Card.scss';
+@import './Footer.scss';
+@import './About.scss';
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+
+  div#root {
+    margin-top: 50px;
+    height: 100%;
+
+    header {
+      max-width: $maxWidth;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main {
+      max-width: $maxWidth;
+      min-height: 100vh;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
+
+@media screen and (max-width: 748px) {
+  body {
+    div#root {
+      margin-bottom: 209px;
+    }
+  }
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

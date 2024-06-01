@@ -1,32 +1,20 @@
 import React from 'react'
 import data from '../data/logements.json'
+import Banner from '../component/Banner'
+import image from '../assets/header-img.png'
+import Card from '../component/Card'
 
 const Home = () => {
   return (
-    <main>
-      <header className="home">
-        <img src="./logo.png" alt="Logo"/>
-        <ul className="header-link">
-          <li>Accueil</li>
-          <li>À propos</li>
-        </ul>
-      </header>
+    <div className='home'>
+      <Banner img={image} text='Chez vous, partout et ailleurs' />
 
-      <section>
-        <div className="image-container">
-          <img src="./header-img.png" alt="Chez vous, partout et ailleurs" />
-          <span className="centered-text">Chez vous, partout et ailleurs</span>
-        </div>
-      </section>
-
-      <section className='logement-section'>
-        {data.map((logement) => (
-        <div key={logement.id} className="logement image-background" style={{ backgroundImage: `url(${logement.cover})` }}>
-            <h2>{logement.title}</h2>
-        </div>
+      <section className='gallery'>
+        {data.map(item => (
+          <Card item={item} key={item.id} />
         ))}
       </section>
-    </main>
+    </div>
   )
 }
 

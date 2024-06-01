@@ -5,14 +5,22 @@ import './style/index.scss'
 import reportWebVitals from './reportWebVitals'
 import Home from './page/Home'
 import NotFound from './page/NotFound'
+import Header from './component/Header'
+import About from './page/About'
+import Footer from './component/Footer'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Router>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Header />
+    <main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </main>
+    <Footer />
   </Router>
 )
 
