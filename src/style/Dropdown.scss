@@ -1,0 +1,41 @@
+.dropdown-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; 
+
+       .dropdown {
+        position: relative;
+        display: block;
+        width: 70%;
+        border-top: 1px solid #f9f9f9;  
+        
+        &-button {
+        display: block;
+        width: 100%;
+        background: rgba(255, 96, 96, 1);
+        border: none;
+        text-align: left;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        color: $white; 
+        }
+    
+        &-content {
+        display: none;
+        padding: 10px;
+        border-top: 1px solid #f9f9f9;
+        color: rgba(255, 96, 96, 1);
+        background: rgba(246, 246, 246, 1);
+        }
+    
+        &.open {
+        .dropdown-content {
+            display: block;
+        }
+      }
+    }
+    
+   }
+ 
