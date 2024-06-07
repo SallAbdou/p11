@@ -17,12 +17,11 @@ header {
             li {
                 text-decoration: none;
                 display: inline;
-
+                color: #ff6060;
                 a {
                     height: 68px;
                     color: $primary;
                     text-decoration: none;
-                    color: $black;
 
                     &:nth-child(1) {
                         margin-left: 20px;
