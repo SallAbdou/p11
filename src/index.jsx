@@ -8,6 +8,7 @@ import NotFound from './page/NotFound'
 import Header from './component/Header'
 import About from './page/About'
 import Footer from './component/Footer'
+import Lodging from './page/Lodging'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -17,6 +18,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path='/lodging/:id' element={<Lodging />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
