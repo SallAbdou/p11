@@ -28,14 +28,16 @@
 
 @media screen and (max-width: 748px) {
     .banner {
-        margin-top: 10%;
-        margin-bottom: 15%;
+        // margin-top: 10%;
+        // margin-bottom: 15%;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-left: 0px;
+        height: auto;
+
         img {
-            height: 336px;
+            height: 111px;
             width: 90%;
         }
 

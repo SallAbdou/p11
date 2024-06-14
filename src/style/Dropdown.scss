@@ -1,46 +1,74 @@
 .dropdown-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    margin-top: 3%;
-  
-    .dropdown {
-      position: relative;
-      width: 90%;
-  
-      &-button {
-        width: 100%;
-        background: $primary;
-        border: none;
-        text-align: left;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 18px;
-        color: $white;
-        height: 58px;
-        line-height: normal;
-        border-radius: 10px;
-  
-        img {
-            bottom: 25%;
-            margin-left: 90%;
-            position: relative;
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-top: 3%;
+
+  .dropdown {
+    position: relative;
+    width: 90%;
+
+    &-button {
+      width: 100%;
+      background: $primary;
+      border: none;
+      text-align: left;
+      padding: 10px;
+      cursor: pointer;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 142.6%;
+      color: $white;
+      height: 58px;
+      border-radius: 10px;
+
+      img {
+        bottom: 79%;
+        margin-left: 96%;
+        position: relative;
       }
-  
-      &-content {
-        display: none;
-        padding: 10px;
-        color: $primary;
-        background: rgba(246, 246, 246, 1);
-      }
-  
-      &.open {
-        .dropdown-content {
-          display: block;
-        }
+    }
+
+    &-content {
+      display: none;
+      padding: 20px;
+      color: black;
+      background: rgba(246, 246, 246, 1);
+      margin-top: -30px;
+      border-radius: 10px 10px 5px 5px;
+    }
+
+    &.open {
+      .dropdown-content {
+        display: block;
       }
     }
   }
-  
+}
+
+@media screen and (max-width: 748px) {
+  .dropdown-section {
+    margin-top: 19px;
+
+    .dropdown {
+      &-button {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        height: 38px;
+
+        img {
+          height: 10px;
+          bottom: 105%;
+          margin-left: 95%;
+        }
+      }
+
+      &-content {
+        font-size: 12px;
+      }
+    }
+  }
+}
