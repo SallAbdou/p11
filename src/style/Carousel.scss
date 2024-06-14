@@ -1,0 +1,34 @@
+.carousel-container {
+    position: relative;
+    
+    // Bouton précédent
+    .prev {
+      position: absolute;
+      top: 50%;
+      left: 10px; 
+      transform: translateY(-50%);
+      z-index: 10;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      background: none;
+      outline: none;
+      border: none;
+    }
+    
+    // Bouton suivant
+    .next {
+      position: absolute;
+      top: 50%;
+      right: 10px; 
+      transform: translateY(-50%);
+      z-index: 10;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      outline: none;
+      background: none;
+      border: none;
+    }
+  }
+  
