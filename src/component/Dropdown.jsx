@@ -1,23 +1,38 @@
-import React, { useState } from 'react'
-import flechedubas from '../assets/arrow-down.png'
-import flecheduhaut from '../assets/arrow-up.png'
+import { useState } from 'react'
+import arrowUp from '../assets/arrow-up.png'
+import arrowDown from '../assets/arrow-down.png'
 
-const Dropdown = ({ title, content }) => {
+const Dropdown = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const description = (data) =>
+    Array.isArray(data)
+      ? (
+      <p>
+        {data.map((element) => (
+          <span key={element}>
+            {element}
+            <br></br>
+          </span>
+        ))}
+      </p>
+        )
+      : (
+      <p>{data}</p>
+        )
+
   return (
-    <section className='dropdown-section'>
-      <div className={`dropdown ${isOpen ? 'open' : ''}`}>
-        <button onClick={() => setIsOpen(!isOpen)} className="dropdown-button">
-          {title} <img src={isOpen ? flecheduhaut : flechedubas} alt="arrow" />
-        </button>
-        {isOpen && (
-          <div className="dropdown-content">
-            <p>{content}</p>
-          </div>
-        )}
+    <div className="dropdown-container">
+      <div className="dropdown">
+        <span>{item.title}</span>
+        <img
+          src={isOpen ? arrowUp : arrowDown}
+          alt="arrow"
+          onClick={() => setIsOpen(!isOpen)}
+        />
       </div>
-    </section>
+      {isOpen ? description(item.description) : ''}
+    </div>
   )
 }
 

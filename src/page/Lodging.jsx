@@ -1,36 +1,45 @@
 /* eslint-disable multiline-ternary */
-import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import InfiniteCarousel from '../component/Carousel'
+import Carousel from '../component/Carousel'
 import data from '../data/logements.json'
+import Tags from '../component/Tags'
+import Ratings from '../component/Ratings'
+import Dropdown from '../component/Dropdown'
 
 const Lodging = () => {
   const { id } = useParams()
-  const [loading, setLoading] = useState(true)
-  const [lodging, setLodging] = useState(null)
 
-  useEffect(() => {
-    // Trouvee le logement correspondant à l'ID
-    const foundLodging = data.find(l => l.id === id)
-    setLodging(foundLodging)
-    setLoading(false)
-  }, [id])
-
-  if (loading) {
-    return <div>Chargement...</div>
-  }
+  const lodging = data.find(l => l.id === id)
 
   return (
-    <div>
-      {lodging ? (
-        <>
-          <h1>{lodging.title}</h1>
-          <InfiniteCarousel pictures={lodging.pictures} />
-        </>
-      ) : (
-        <p>Logement non trouvé</p>
-      )}
-    </div>
+    <section id='lodging'>
+      <Carousel data={lodging} />
+      <div className="container">
+        <div className="header">
+          <div className="title">
+            <h1>{lodging.title}</h1>
+            <h2>{lodging.location}</h2>
+            <Tags tags={lodging.tags} />
+          </div>
+          <div className="sub-header">
+            <div className="host">
+              <span>{lodging.host.name}</span>
+              <img src={lodging.host.picture} alt={lodging.host.name} />
+            </div>
+            <Ratings rating={lodging.rating} />
+          </div>
+        </div>
+        <div className="dropdowns">
+          <Dropdown
+            item={{ title: 'Description', description: lodging.description }}
+          />
+          <Dropdown
+            item={{ title: 'Equipements', description: lodging.equipments }}
+          />
+        </div>
+      </div>
+
+    </section>
   )
 }
 

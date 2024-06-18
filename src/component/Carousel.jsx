@@ -2,45 +2,45 @@ import React, { useState } from 'react'
 import arrowLeft from '../assets/arrow-left.png'
 import arrowRight from '../assets/arrow-right.png'
 
-const InfiniteCarousel = ({ pictures }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const navigateCarousel = (sens) => {
-    if (sens === -1 && currentIndex === 0) {
-      setCurrentIndex(pictures.length - 1)
-    } else if (sens === 1 && currentIndex === (pictures.length - 1)) {
-      setCurrentIndex(0)
-    } else {
-      setCurrentIndex(currentIndex + sens)
-    }
-  }
-
-  // Fonction pour gérer la navigation au clavier
-  /*   const handleKeyDown = (event) => {
-    if (event.keyCode === 37) { // Flèche gauche
-      navigateCarousel(-1)
-    } else if (event.keyCode === 39) { // Flèche droite
-      navigateCarousel(1)
-    }
-  } */
+const Carousel = ({ data }) => {
+  const [indexPicture, setIndexPicture] = useState(0)
+  const previousPicture = () =>
+    setIndexPicture(
+      indexPicture === 0 ? data.pictures.length - 1 : indexPicture - 1
+    )
+  const nextPicture = () =>
+    setIndexPicture(
+      indexPicture === data.pictures.length - 1 ? 0 : indexPicture + 1
+    )
 
   return (
-    <div className="carousel-container">
-      <button className="carousel-button prev" onClick={() => navigateCarousel(-1)}>
-        <img src={arrowLeft} alt="Précédent" />
-      </button>
-      <div className="carousel-slide">
-        <img
-          src={pictures[currentIndex]}
-          alt={`Logement ${currentIndex + 1}`}
-          className="carousel-image"
-        />
-      </div>
-      <button className="carousel-button next" onClick={() => navigateCarousel(1)}>
-        <img src={arrowRight} alt="Suivant" />
-      </button>
+    <div className="carrousel">
+      <img
+        className="picture"
+        src={data.pictures[indexPicture]}
+        alt={`logement n°${indexPicture}`}
+      />
+      {data.pictures.length !== 1 ? (
+        <>
+          <img
+            className="arrow arrow-left"
+            src={arrowLeft}
+            alt="chevron gauche"
+            onClick={() => previousPicture()}
+          />
+          <img
+            className="arrow arrow-right"
+            src={arrowRight}
+            alt="chevron droit"
+            onClick={() => nextPicture()}
+          />
+          <span>
+            {indexPicture + 1}/{data.pictures.length}
+          </span>
+        </>
+      ) : (<></>)}
     </div>
   )
 }
 
-export default InfiniteCarousel
+export default Carousel
