@@ -28,8 +28,6 @@
 
 @media screen and (max-width: 748px) {
     .banner {
-        // margin-top: 10%;
-        // margin-bottom: 15%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -46,6 +44,7 @@
             left: 36px;
             font-size: 24px;
             width: 80%;
+            text-align: left;
         }
     }
 }

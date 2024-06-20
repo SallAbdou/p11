@@ -1,5 +1,5 @@
 /* eslint-disable multiline-ternary */
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import Carousel from '../component/Carousel'
 import data from '../data/logements.json'
 import Tags from '../component/Tags'
@@ -8,8 +8,12 @@ import Dropdown from '../component/Dropdown'
 
 const Lodging = () => {
   const { id } = useParams()
-
   const lodging = data.find(l => l.id === id)
+
+  // redirection si l'id n'est pas bon
+  if (!lodging) {
+    return <Navigate to="/not-found" />
+  }
 
   return (
     <section id='lodging'>
