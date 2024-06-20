@@ -3,7 +3,11 @@
 
     .dropdown-container {
         margin-top: 30px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
+
 }
 
 @media screen and (max-width: 748px) {
@@ -12,6 +16,10 @@
 
         .container-dropdowns {
             padding: 28px;
+
+            .dropdown-container {
+                width: 100%;
+            }
         }
     }
 }
